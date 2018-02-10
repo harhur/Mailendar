@@ -1,3 +1,4 @@
+
 var x = new XMLHttpRequest();
 x.open("GET", "https://apis.google.com/js/platform.js");
 x.send();
@@ -19,7 +20,8 @@ function listMessages(userId, query, callback) {
           'pageToken': nextPageToken,
           'q': query
         });
-        getPageOfMessages(request, result);
+        console.log(
+          "hello!");
       } else {
         callback(result);
       }
@@ -29,18 +31,18 @@ function listMessages(userId, query, callback) {
     'userId': userId,
     'q': query
   });
-  getPageOfMessages(initialRequest, []);
+  console.log("hello!!");
 }
 
 // Get Message with given ID.
 
-function getMessage(userId, messageId, callback) {
+/*function getMessage(userId, messageId, callback) {
   var request = gapi.client.gmail.users.messages.get({
     'userId': userId,
     'id': messageId
   });
   request.execute(callback);
-}
+}*/
 
 // placeholder
 
@@ -54,5 +56,5 @@ function refreshPage() {
 });*/
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('button').addEventListener('click', refreshPage);
+    document.getElementById('button').addEventListener('click', listMessages);
 });
